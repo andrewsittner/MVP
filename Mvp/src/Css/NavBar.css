@@ -1,0 +1,43 @@
+ul {
+    list-style-type: none;
+}
+
+.navbar {
+
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+}
+.navbar a {
+    text-decoration: none;
+    color: black
+}
+
+.navbar .logo {
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black
+}
+.navbar .nav-links {
+    display: flex;
+   
+    
+}
+.navbar .nav-links ul {
+    display: flex;
+}
+
+.navbar .nav-links ul li {
+    display: flex;
+    margin: 0 25px;
+}
+
+
+.navbar .nav-links ul li.active a{
+    color:red;
+    font-weight: 600;
+}

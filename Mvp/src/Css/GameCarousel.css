@@ -1,0 +1,10 @@
+
+.swiper-slide, swiper-slide  {
+    width: 10rem !important; 
+    height: 10rem !important;
+}
+
+  .swiper-slide:hover .middle {
+    opacity: .9;
+    cursor: pointer;
+  }
