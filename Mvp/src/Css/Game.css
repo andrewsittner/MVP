@@ -1,0 +1,51 @@
+.item {
+    min-width: 10rem;
+    height:10rem;
+    width: 10rem;
+    padding: 1px ;
+    margin-bottom: 20px;
+}
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: 30% 30%;
+    border-radius: 10px;
+    pointer-events: none;
+    border: 2px solid;
+}
+
+.card {
+  min-width: 10rem;
+  height: 10rem;
+  width: 10rem;
+  padding: 1px ;
+  margin-bottom: 20px;
+}
+
+  .GameModal {
+
+    background-color: hwb(12 91% 7%);
+    box-shadow: 1px 1px 5px grey;
+    object-fit: cover;
+    object-position: 30% 30%;
+    
+  }
+  
+  .ExpandedCard {
+    position:absolute;
+    width: 600px;
+    height:600px;
+  }
+ 
+  #GameModalClose {
+    cursor: pointer;
+  }
+  
+  #GameModalClose:hover {
+    cursor: pointer;
+  }
+  
+  .QuestionModal {
+
+  }
