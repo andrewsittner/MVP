@@ -1,0 +1,16 @@
+.RecommendedSection {
+
+    display: flex;
+
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.RecommendedGameCard {
+    width: 18%;
+    justify-content: space-around;
+    margin-top: 1%;
+    border-radius: 4%;
+    height: 10rem;
+    overflow: hidden;
+}
