@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import GameCarousel from "./GameCarousel";
 import axios from "axios"
+import './Css/ActionGame.css'
 
-const ActionGames = () => {
+const ActionGames = ( {addUserGame, removeUserGame}) => {
 
     const [actionG, setActionG] = useState([])
 
@@ -17,7 +18,8 @@ const ActionGames = () => {
     },[])
     return (
         <div>
-        <GameCarousel games={actionG}/>
+        <h2 className="action">Action</h2>
+        <GameCarousel removeUserGame={removeUserGame} addUserGame={addUserGame} id="gameCarousel" games={actionG}/>
         </div>
     )
 }

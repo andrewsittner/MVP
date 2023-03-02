@@ -4,3 +4,11 @@
     padding-bottom: 1%;
     border: 1px solid whitesmoke;
 }
+
+.modalText {
+    color: white    
+}
+
+.gameImage {
+    z-index: 100;
+}

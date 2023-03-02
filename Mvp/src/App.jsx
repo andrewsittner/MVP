@@ -1,16 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Css/App.css'
 import Login from './Login'
+import Home from './Home.jsx'
 import NavBar from './NavBar.jsx'
-import GameList from './GameList.jsx'
+import { Route, Routes } from "react-router-dom"
+
 function App() {
 
+  const [currentUserID, setCurrentUserID] = useState('')
+  const setUser = (id) => {
+    setCurrentUserID(id)
+  }
   return (
-    <div className="App">
-      {/* <Login/> */}
-      <NavBar/>
-      <GameList/>
-    </div>
+    <>
+    <NavBar />
+      <div className='App'>
+        <Routes>
+          <Route path="/login"  element={<Login setUser={setUser} />} />
+          <Route path="/" element={<Home currentUserID={currentUserID} />} />
+        </Routes>
+      </div>
+    </>
   )
 }
 

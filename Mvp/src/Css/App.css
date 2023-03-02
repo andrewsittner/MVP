@@ -1,0 +1,12 @@
+body {
+   background: url('/Assets/modern-futuristic-sci-fi-background.jpg')no-repeat center center fixed;
+   overflow-x: hidden;
+   background-size: cover;
+
+}
+
+.App {
+   width: 70%;
+   margin: 0 auto;
+
+}

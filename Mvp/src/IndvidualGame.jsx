@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-const IndvidualGame = ({ game }) => {
-    let backgroundImageStyle = `background-image: url(${game.image}); height: 200px; width: 400px; border: 1px solid black;`
+const IndvidualGame = ({ game, addUserGame, removeUserGame }) => {
+    const [hasBeenSelected, setHasBeenSelected] = useState(false)
+
+    const addGame = (game) => {
+        if (!hasBeenSelected) {
+            addUserGame(game)
+            setHasBeenSelected(true)
+        }
+    }
+    const removeGame = (game) => {
+        removeUserGame(game)
+        setHasBeenSelected(false)
+    }
+
     return (
         <div className="IndGame">
-            <div>{game.name}</div>
-            <div>{game.rating}</div>
-            <div className="gameDescription">{game.description.replace(/(<([^>]+)>)/ig, '')}</div>
+            <div className="modalText">
+                <div>{game.name}</div>
+                <button onClick={() => { addGame(game) }}>Add Game</button>
+                <div>{game.rating}</div>
+                <div className="gameDescription">{game.description.replace(/(<([^>]+)>)/ig, '')}</div>
+                <button onClick={() => { removeGame(game)}}>Remove Game</button>
+            </div>
         </div>
     )
 }

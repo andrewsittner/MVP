@@ -1,8 +1,9 @@
+import axios from "axios";
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
-
-const Login = () => {
-
+const Login = ({setUser}) => {
+    const navigate = useNavigate();
     const [loginForm, setLoginForm] = useState({
         email:'',
         password:''
@@ -16,18 +17,20 @@ const Login = () => {
     }
 
     const handleLoginSubmit = () => {
-        console.log(loginForm)
-    }
+        axios.post('http://localhost:3000/auth/login_signup', loginForm)
+        .then(data => {setUser(loginForm.email), navigate('/')})
+        .catch(err => console.log(err, 'err in axios post'))
+    } 
 
     return (
-        <div onSubmit={handleLoginSubmit}>
-            <form>
+        <div >
+            <div>
                 <label>Email</label>
                 <input name="email" onChange={(e) => {handleLoginInput(e)}}></input>
                 <label>Password</label>
                 <input name="password" onChange={(e) => {handleLoginInput(e)}}></input>
-                <button type="submit">Submit</button>
-            </form>
+                <button onClick={handleLoginSubmit}>Submit</button>
+            </div>
         </div>
     )
 }
