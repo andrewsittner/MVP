@@ -6,7 +6,7 @@ swiper-slide, swiper-slide  {
 
   .swiper-slide:hover .middle {
     opacity: .9;
-    cursor: pointer;
+    
   }
 
   .ReactModalPortal {

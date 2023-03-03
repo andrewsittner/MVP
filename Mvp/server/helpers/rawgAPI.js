@@ -1,12 +1,13 @@
 const axios = require('axios')
 const path = require('path');
 require('dotenv').config()
-let apiKey = process.env.KEY
+let apiKey = process.env.API_KEY
 
 
 const getByGenre = async (genre) => {
+    if (genre === 'rpg') genre = "role-playing-games-rpg"
     let results = []
-    let initialResult = await axios.get(`https://api.rawg.io/api/games?key=${apiKey}&ordering=-metacritic&genre=${genre}`)
+    let initialResult = await axios.get(`https://api.rawg.io/api/games?key=${apiKey}&ordering=-metacritic&genres=${genre}`)
     for (let i = 0; i < initialResult.data.results.length; i++) {
         let gameid = initialResult.data.results[i].id
         const game = await axios.get(`https://api.rawg.io/api/games/${gameid}?key=${apiKey}`)
@@ -43,7 +44,6 @@ const getByTitle = async (games) => {
             description: finalResult.data.description,
         })
     }
-    console.log(finalResultArray)
     return finalResultArray
 }
 

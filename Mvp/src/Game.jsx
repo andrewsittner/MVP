@@ -5,7 +5,7 @@ import './Css/Game.css'
 
 
 
-const Game = ({ game, addUserGame, removeUserGame}) => {
+const Game = ({ game, addUserGame, removeUserGame, userGames}) => {
     const [modalIsOpen, setModal] = useState(false);
     if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
@@ -21,7 +21,7 @@ const Game = ({ game, addUserGame, removeUserGame}) => {
 
 
     return (
-        <div>
+        <div className="GameComponent">
             <div onClick={openModal} className="GameCard">
                 <img className="gameImage" layout="position" src={game.image}></img>
                 <div className="middle">
@@ -38,8 +38,7 @@ const Game = ({ game, addUserGame, removeUserGame}) => {
                 isOpen={modalIsOpen}
                 onRequestClose={() => { setModal(false) }}>
 
-                <IndvidualGame removeUserGame={removeUserGame} addUserGame={addUserGame} game={game} />
-                <button id="GameClose" onClick={() => { setModal(false) }}>X</button>
+                <IndvidualGame userGames={userGames} removeUserGame={removeUserGame} addUserGame={addUserGame} game={game} />
             </Modal>
         </div >
     )

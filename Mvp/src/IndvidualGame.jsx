@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import './Css/IndividualGame.css'
 
-const IndvidualGame = ({ game, addUserGame, removeUserGame }) => {
+const IndvidualGame = ({ game, addUserGame, removeUserGame, userGames }) => {
     const [hasBeenSelected, setHasBeenSelected] = useState(false)
 
     const addGame = (game) => {
@@ -14,15 +15,34 @@ const IndvidualGame = ({ game, addUserGame, removeUserGame }) => {
         setHasBeenSelected(false)
     }
 
+    const determineLiked = () => {
+        const gameNames = userGames.map((game) => {
+            return game.name
+        })
+        if (gameNames.includes(game.name)) setHasBeenSelected(true)
+    }
+
+    useEffect(() => {
+        determineLiked()
+    }, [])
+
     return (
         <div className="IndGame">
             <div className="modalText">
-                <div>{game.name}</div>
-                <button onClick={() => { addGame(game) }}>Add Game</button>
-                <div>{game.rating}</div>
-                <div className="gameDescription">{game.description.replace(/(<([^>]+)>)/ig, '')}</div>
-                <button onClick={() => { removeGame(game)}}>Remove Game</button>
+                <div className="TopBar">
+                    <div className="GameName">{game.name}</div>
+                    <div className="GameRating">Metacritic: {game.rating}/100</div>
+                </div>
+                <div className="GameDescription">
+                    <div className="Description">Description:</div>
+                    <div className="GameDescriptionText">{game.description.replace(/(<([^>]+)>)/ig, '')}</div>
+                </div>
             </div>
+            {!hasBeenSelected
+                ? <button className="btn-green btn-primary btn-ghost-green btn-shine-green" onClick={() => { addGame(game) }}>Like Game</button>
+                : <button className="btn-red btn-primary btn-ghost-red btn-shine-red" onClick={() => { removeGame(game) }}>Dislike Game</button>
+            }
+
         </div>
     )
 }

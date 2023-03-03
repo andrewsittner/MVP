@@ -18,7 +18,7 @@
     object-position: 30% 30%;
     border-radius: 10px;
     pointer-events: none;
-    border: 2px solid;
+
 }
 
 
@@ -32,8 +32,11 @@
     object-position: 30% 30%;
     width: 400px;
     height: 500px;
+    border-radius: 2%;
   }
   
+  
+
 
   .gameName {
     display: none;
@@ -41,12 +44,15 @@
   .gameName:hover {
     font-size: 50px;
   }
-
+  .UserGameCard {
+    height: 200px;
+}
   .gameImage {
+    border-radius: 2%;
     opacity: 1;
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     transition: .5s ease;
     backface-visibility: hidden;
   }
@@ -71,12 +77,14 @@
   }
   .GameCard {
     min-width: 10rem;
-    min-height: 10rem
+    min-height: 10rem;
+    height: 100%;
+    cursor: pointer;
   }
   
   .text {
     color: white;
-    font-size: 22px;
+    font-size: 1vw;
     font-weight: 200;
   }
 
@@ -119,4 +127,9 @@
 .overlay-before {
   background-color: rgba(0, 0, 0, 0);
   opacity: 0;
+}
+
+
+.GameComponent {
+  height: 100%
 }

@@ -7,24 +7,23 @@ import './Css/GameCarousel.css'
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-const GameCarousel = ({ games, addUserGame, removeUserGame}) => {
+const GameCarousel = ({ games, addUserGame, removeUserGame, userGames}) => {
     const gamesDisplayed = games.map((game) => {
+
         return (
             <SwiperSlide  className="item" data-swiper-autoplay="1000" key={game.id}>
-                <Game removeUserGame={removeUserGame} addUserGame={addUserGame} key={game.id} game={game} />
+                <Game userGames={userGames} removeUserGame={removeUserGame} addUserGame={addUserGame} key={game.id} game={game} />
             </SwiperSlide>
         )
     })
 
     return (
         <Swiper
-            slidesPerView={6}
+            slidesPerView={7}
             spaceBetween={30}
             loop={true}
-            pagination={{
-                clickable: true,
-            }}
-            navigation={true}
+       
+            navigation={false}
             
             autoplay={{
                 delay: 500,

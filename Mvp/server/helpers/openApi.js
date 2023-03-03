@@ -1,9 +1,10 @@
 const path = require('path');
 require('dotenv').config()
+let apiKey = process.env.KEY
 const { Configuration, OpenAIApi } = require("openai");
 const {getByTitle} = require('./rawgAPI')
 const configuration = new Configuration({
-  apiKey: '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'
+  apiKey: apiKey
 });
 
 const openai = new OpenAIApi(configuration);
@@ -13,7 +14,7 @@ const getRecommendations = async (games) => {
   })
  const data = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `give me a list of ten games that are similar to ${gameNames} send them to me in an array seperated by commas`,
+    prompt: `give me a list of ten games that are similar but not the same to ${gameNames.toString()} send them to me in an array seperated by commas`,
     temperature: 0.6,
     max_tokens: 100,
     top_p: 1,

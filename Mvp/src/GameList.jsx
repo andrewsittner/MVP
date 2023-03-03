@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import AllGames from "./AllGames";
 
 
-const GameList = ({addUserGame, removeUserGame}) => {
+const GameList = ({addUserGame, removeUserGame, userGames}) => {
 
     return (
         <div className="AllGames">
-            <AllGames addUserGame={addUserGame} removeUserGame={removeUserGame}/>
+            <AllGames userGames={userGames} addUserGame={addUserGame} removeUserGame={removeUserGame}/>
         </div>
     )
 }

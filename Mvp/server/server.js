@@ -46,7 +46,6 @@ app.post('/updateGames', (req, res) => {
 })
 
 app.post('/getRecommendations', (req, res) => {
-  console.log('here')
   getRecommendations(req.body.games)
   .then(data => res.json(data))
   .catch(err => console.log(err, 'error in getrecommedation express'))

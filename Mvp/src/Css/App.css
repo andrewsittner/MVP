@@ -1,11 +1,22 @@
-body {
-   background: url('/Assets/modern-futuristic-sci-fi-background.jpg')no-repeat center center fixed;
-   overflow-x: hidden;
-   background-size: cover;
-
+@font-face {
+   font-family: "KarmaFuture";
+   src: local("KarmaFuture"),
+      url("../../Assets/KarmaFuture.ttf") format("truetype");
+   font-weight: bold;
 }
 
+
+
+body {
+
+   overflow-x: hidden;
+
+}
+.webPage {
+   font-family: "KarmaFuture";
+}
 .App {
+
    width: 70%;
    margin: 0 auto;
 
