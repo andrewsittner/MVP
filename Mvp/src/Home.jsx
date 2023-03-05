@@ -3,14 +3,17 @@ import React, { useEffect, useState } from "react";
 import GameList from "./GameList";
 import Recommendations from "./Recommendations";
 import UserGamesDisplay from './UserGamesDisplay'
+import { useNavigate } from "react-router-dom";
 import './Css/Home.css'
 
 
 
 const Home = ({ currentUserID }) => {
-
+    const navigate = useNavigate();
     const [userGames, setUserGames] = useState([])
     const [recommendedGames, setRecommendedGames] = useState([])
+
+   
     const addUserGame = (game) => {
         setUserGames([...userGames, game])
     }
@@ -39,6 +42,9 @@ const Home = ({ currentUserID }) => {
     }
 
     useEffect(() => {
+        if (currentUserID === '') {
+            navigate('/login')
+        }
         getUserGameData()
         getRecommendations()
     }, [])
@@ -49,16 +55,16 @@ const Home = ({ currentUserID }) => {
             {recommendedGames.length > 0
                 ? <>
                     <Recommendations addUserGame={addUserGame} userGames={userGames} removeUserGame={removeUserGame} recommendedGames={recommendedGames} />
-                    <button className="glow-on-hover" hover="true" type="button" onClick={handleGetNewRecommendations}>Generate New recommendations </button>
-                    
+
+
                 </>
                 : <div><p>l</p><p>o</p><p>a</p><p>d</p><p>i</p><p>n</p><p>g</p></div>
-              
-            }
 
+            }
+            <button className="glow-on-hover" hover="true" type="button" onClick={handleGetNewRecommendations}>Generate New recommendations </button>
             {userGames.length > 0
                 ? <div className="likedGamesBlock">
-                    <h2>Your Liked Games:</h2><UserGamesDisplay  addUserGame={addUserGame} removeUserGame={removeUserGame} userGames={userGames} />
+                    <h2>Your Liked Games:</h2><UserGamesDisplay addUserGame={addUserGame} removeUserGame={removeUserGame} userGames={userGames} />
                 </div>
                 : <h2>No Liked Games Found</h2>
             }

@@ -22,7 +22,7 @@ function App() {
     <div className="webPage">
     
 
-    <NavBar />
+    <NavBar currentUserID={currentUserID} />
       <div className='App'>
       <Particles id="particles-here" init={particlesInit} options={particlesConfig} />
         <Routes>

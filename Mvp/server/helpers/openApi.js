@@ -4,7 +4,7 @@ let apiKey = process.env.KEY
 const { Configuration, OpenAIApi } = require("openai");
 const {getByTitle} = require('./rawgAPI')
 const configuration = new Configuration({
-  apiKey: apiKey
+  apiKey: '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'
 });
 
 const openai = new OpenAIApi(configuration);
