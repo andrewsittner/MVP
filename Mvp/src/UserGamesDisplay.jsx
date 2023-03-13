@@ -18,16 +18,14 @@ const UserGamesDisplay = ({ userGames, addUserGame, removeUserGame }) => {
     })
 
     return (
-        <>
             <Swiper
                 effect={"cards"}
                 grabCursor={true}
                 modules={[EffectCards]}
                 className="mySwiper"
-            >
+                >
                 {mappedUserGames}
             </Swiper>
-        </>
     )
 }
 

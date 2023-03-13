@@ -55,8 +55,6 @@ const Home = ({ currentUserID }) => {
             {recommendedGames.length > 0
                 ? <>
                     <Recommendations addUserGame={addUserGame} userGames={userGames} removeUserGame={removeUserGame} recommendedGames={recommendedGames} />
-
-
                 </>
                 : <div><p>l</p><p>o</p><p>a</p><p>d</p><p>i</p><p>n</p><p>g</p></div>
 

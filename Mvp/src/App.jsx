@@ -26,7 +26,7 @@ function App() {
       <div className='App'>
       <Particles id="particles-here" init={particlesInit} options={particlesConfig} />
         <Routes>
-          <Route path="/login"  element={<Login setUser={setUser} />} />
+          <Route path="/login"  element={<Login setUser={setCurrentUserID} />} />
           <Route path="/" element={<Home currentUserID={currentUserID} />} />
         </Routes>
       </div>

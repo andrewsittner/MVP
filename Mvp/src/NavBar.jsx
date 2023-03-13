@@ -1,10 +1,11 @@
 import React from "react";
 import './Css/NavBar.css'
+import { Link } from "react-router-dom";
 const NavBar = ( {currentUserID}) => {
 
     return (
         <nav className="navbar">
-            <a href="login" className="logo">GameGrotto</a>
+            <Link className="logo" to="login">Game Grotto</Link>
             <div className="nav-links">
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -14,8 +15,8 @@ const NavBar = ( {currentUserID}) => {
                     }
                     <li><a href="#">Support</a></li>
                     {currentUserID === ''
-                    ?<li><a href="login">Sign In</a></li>
-                    :<li><a href="login">Sign Out</a></li>
+                    ?<li><Link to="login">Sign In</Link></li>
+                    :<li><Link to="login">Sign Out</Link></li>
                     }
                 </ul>
             </div>
