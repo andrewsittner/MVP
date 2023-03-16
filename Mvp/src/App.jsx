@@ -12,9 +12,7 @@ import particlesConfig from './particles-config'
 function App() {
 
   const [currentUserID, setCurrentUserID] = useState('')
-  const setUser = (id) => {
-    setCurrentUserID(id)
-  }
+
   const particlesInit = async (main) => {
     await loadFull(main);
   };
