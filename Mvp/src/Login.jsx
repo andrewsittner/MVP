@@ -32,27 +32,26 @@ const Login = ({ setUser }) => {
 
     return (
         <div className="Login">
-        <div className="wrapper">
-            <div className="form-wrapper sign-in">
-            <div className="form">
-                    <h2>Sign in</h2>
-                    <div className="input-group">
-                        <input required="required" type="text" name="email" onChange={(e) => { handleLoginInput(e) }}></input>
-                        <label>Email</label>
-       
-                    </div>
-                    <div className="input-group">
-                        <input required="required" type="password" name="password" onChange={(e) => { handleLoginInput(e) }}></input>
-                        <label>Password</label>
-                    </div>
-                    {invalidPassword
+            <div className="wrapper">
+                <div className="form-wrapper sign-in">
+                    <div className="form">
+                        <h2>Sign in</h2>
+                        <div className="input-group">
+                            <input required="required" type="text" name="email" id="email" onChange={(e) => { handleLoginInput(e) }}></input>
+                            <label htmlFor="email">Email</label>
+                        </div>
+                        <div className="input-group">
+                            <input required="required" type="password" id="password" name="password" onChange={(e) => { handleLoginInput(e) }}></input>
+                            <label htmlFor="password">Password</label>
+                        </div>
+                        {invalidPassword
                             ? <div className="InvalidPassword">Invalid email or password please try again</div>
                             : <div hidden={true}></div>}
 
-                    <button onClick={handleLoginSubmit} className="loginButton"  >Login</button>
+                        <button onClick={handleLoginSubmit} className="loginButton"  >Login</button>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     )
 }
