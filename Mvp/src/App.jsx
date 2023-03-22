@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './Css/App.css'
 import Login from './Login'
 import Home from './Home.jsx'
 import NavBar from './NavBar.jsx'
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, Navigate } from "react-router-dom"
 import '../Assets/KarmaFuture.ttf'
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -18,14 +18,15 @@ function App() {
   };
   return (
     <div className="webPage">
-    
 
-    <NavBar currentUserID={currentUserID} />
+
+      <NavBar currentUserID={currentUserID} />
       <div className='App'>
-      <Particles id="particles-here" init={particlesInit} options={particlesConfig} />
+        <Particles id="particles-here" init={particlesInit} options={particlesConfig} />
         <Routes>
-          <Route path="/login"  element={<Login setUser={setCurrentUserID} />} />
-          <Route path="/" element={<Home currentUserID={currentUserID} />} />
+          <Route path='/' element={<Navigate to='/login' replace />} />
+          <Route path="/login" element={<Login setUser={setCurrentUserID} />} />
+          <Route path="/home" element={<Home currentUserID={currentUserID} />} />
         </Routes>
       </div>
     </div>

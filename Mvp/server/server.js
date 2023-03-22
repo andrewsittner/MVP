@@ -5,16 +5,19 @@ const {getByGenre} = require('./helpers/rawgAPI')
 const bodyParser = require("body-parser");
 const passport = require('./passportConfig')
 const auth = require("../routes/auth.js")
+const path = require('path')
 const cors = require('cors')
 const connect = require('../database/index')
 const getRecommendations = require('./helpers/openApi')
+const compression = require('compression')
 const {getUserGames, updateUserGames } = require('../database/controllers/userControllers')
 connect()
 app.use(cors())
+app.use(compression())
 app.use(require('express-session')({ secret: 'supersecret', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -50,6 +53,10 @@ app.post('/getRecommendations', (req, res) => {
   .then(data => res.json(data))
   .catch(err => console.log(err, 'error in getrecommedation express'))
 })
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist' , 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
