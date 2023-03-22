@@ -21,7 +21,7 @@ const Login = ({ setUser }) => {
 
     const handleLoginSubmit = () => {
         axios.post('http://localhost:3000/auth/login_signup', loginForm)
-            .then(data => { setUser(loginForm.email), setInvalidPassword(false), navigate('/') })
+            .then(data => { setUser(loginForm.email), setInvalidPassword(false), navigate('/home') })
             .catch(err => { setInvalidPassword(true) })
     }
 
