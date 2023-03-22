@@ -9,6 +9,7 @@ const path = require('path')
 const cors = require('cors')
 const connect = require('../database/index')
 const getRecommendations = require('./helpers/openApi')
+const compression = require('compression')
 const {getUserGames, updateUserGames } = require('../database/controllers/userControllers')
 connect()
 app.use(cors())
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({extended: false}))
+app.use(compression())
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:5173"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
