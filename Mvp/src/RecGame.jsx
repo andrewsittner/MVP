@@ -20,7 +20,7 @@ const RecGame = ({ game, addUserGame, removeUserGame, userGames }) => {
     return (
         <div className="innerRecGameCard">
             <div onClick={openModal} className="RecGameCard">
-                <img className="RecgameImage" layout="position" src={game.image}></img>
+                <img className="RecgameImage" alt="Reccomended Game Image not found" layout="position" src={game.image}></img>
                 <div className="RecMiddle">
                     <div className="text">{game.name}</div>
                 </div>
