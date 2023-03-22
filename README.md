@@ -16,7 +16,7 @@ This is an example of authentication that prevents a user from logging in with a
 
 The main page of the platform displays a list of games that users can browse through to find the ones they like. Once they find a game they like, they can like it and save it. Based on the liked games, the platform generates recommendations for the user.
 
-![](https://github.com/andrewsittner/MVP/blob/main/Mvp/ReadMeGifs/Home.gif)
+![](https://github.com/andrewsittner/MVP/blob/main/Mvp/ReadMeGifs/Main.gif)
 
 This is the current lighthouse score 
 ![](https://github.com/andrewsittner/MVP/blob/main/Mvp/ReadMeGifs/Lighthouse.PNG)
