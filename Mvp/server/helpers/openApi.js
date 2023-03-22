@@ -1,10 +1,10 @@
 const path = require('path');
-require('dotenv').config()
-let apiKey = process.env.KEY
 const { Configuration, OpenAIApi } = require("openai");
 const {getByTitle} = require('./rawgAPI')
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+let apiKey = process.env.KEY
 const configuration = new Configuration({
-  apiKey: ''
+  apiKey: apiKey
 });
 
 const openai = new OpenAIApi(configuration);

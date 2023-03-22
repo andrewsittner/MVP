@@ -3,7 +3,6 @@ const path = require('path');
 require('dotenv').config()
 let apiKey = process.env.API_KEY
 
-
 const getByGenre = async (genre) => {
     if (genre === 'rpg') genre = "role-playing-games-rpg"
     let results = []
